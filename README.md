@@ -1,5 +1,3 @@
-![Logo](docs/IST.png)
-
 <!-- ABOUT THE PROJECT -->
 
 ## Sobre o Projeto

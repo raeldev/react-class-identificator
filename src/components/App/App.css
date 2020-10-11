@@ -36,7 +36,7 @@ code {
   margin-top: 5vh;
   margin-left: 0.5vw;
   margin-right: 0.5vw;
-  width: 15vw;
+  min-width: 13rem;
   min-height: 20vh;
 }
 

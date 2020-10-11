@@ -3,16 +3,18 @@ import './App.css';
 import Helmet from 'react-helmet';
 import {
   Button,
+  Box,
   Card,
   CardHeader,
   CardContent,
   CardActions,
   Typography,
   Tooltip,
-  Box,
+  TextField,
 } from '@material-ui/core';
 
 function App() {
+  const [filterdClasses, setFiltredClasses] = useState([]);
   const [classes, setClasses] = useState([
     {
       discipline: 'math',
@@ -26,8 +28,6 @@ function App() {
     },
   ]);
 
-  let classesWithfirstDigit;
-
   const anotherDisciplineNames = [
     'art',
     'physics',
@@ -35,6 +35,12 @@ function App() {
     'geography',
     'chemistry',
   ];
+
+  const getRandomInt = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  };
 
   const generateRandomClasses = () => {
     let newClassList = [...classes];
@@ -64,14 +70,17 @@ function App() {
     if (!classList) return [];
 
     let newClassList = [...classList];
+    let newFiltredClassesList = [];
     newClassList.forEach((c, index) => {
       let leftNumberOfMinutes = Math.floor(c.startMinute / 10);
       if (leftNumberOfMinutes % 2 !== 0) {
         newClassList[index].border = true;
+        newFiltredClassesList.push(c);
       }
     });
 
     setClasses(newClassList);
+    setFiltredClasses(newFiltredClassesList);
     return classList;
   };
 
@@ -96,16 +105,6 @@ function App() {
                   '00' + c.startMinute
                 ).slice(-2)}`}
               </span>
-              {/* {JSON.stringify(c)
-              .split(',')
-              .map((codeFragment) => {
-                return (
-                  <code>
-                  {codeFragment + ','}
-                  <br />
-                  </code>
-                  );
-                })} */}
             </CardContent>
           </Card>
         </Box>
@@ -113,10 +112,15 @@ function App() {
     });
   };
 
-  const getRandomInt = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
+  const renderJsonClasses = () => {
+    let listToShow = filterdClasses.map((fc) => {
+      delete fc.border;
+      return fc;
+    });
+
+    if (!listToShow?.length) return '';
+
+    return JSON.stringify(listToShow, null, 4);
   };
 
   return (
@@ -152,6 +156,12 @@ function App() {
               </Button>
             </Tooltip>
           </CardActions>
+          <TextField
+            multiline
+            fullWidth
+            variant="filled"
+            value={renderJsonClasses()}
+          />
         </Card>
       </header>
     </div>
