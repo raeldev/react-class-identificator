@@ -81,7 +81,7 @@ function App() {
 
     setClasses(newClassList);
     setFiltredClasses(newFiltredClassesList);
-    return classList;
+    return newFiltredClassesList;
   };
 
   // FIM Resposta do desafio
