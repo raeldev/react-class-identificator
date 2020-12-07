@@ -4,6 +4,26 @@
 
 Este repositório serve a um teste técnico.
 
+Desafio:
+Escreva uma função capaz de retornar, a partir de uma lista de aulas, aquelas que se iniciam em minuto ímpar.
+
+Formato da representação de aula esperado:
+[
+  {
+    discipline: “math”,
+    startHour: 11,
+    startMinute: 0
+  },
+  {
+    discipline: “biology”,
+    startHour: 12,
+    startMinute: 15
+  },
+] 
+
+
+
+
 <!-- GETTING STARTED -->
 
 ### Pré-requisitos
