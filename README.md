@@ -8,7 +8,7 @@ Desafio:
 Escreva uma função capaz de retornar, a partir de uma lista de aulas, aquelas que se iniciam em minuto ímpar.
 
 Formato da representação de aula esperado:
-[
+ ```[
   {
     discipline: “math”,
     startHour: 11,
@@ -19,10 +19,8 @@ Formato da representação de aula esperado:
     startHour: 12,
     startMinute: 15
   },
-] 
-
-
-
+]
+```
 
 <!-- GETTING STARTED -->
 
